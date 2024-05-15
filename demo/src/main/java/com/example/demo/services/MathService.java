@@ -1,7 +1,10 @@
-package com.example.demo;
+package com.example.demo.services;
+
+import org.springframework.stereotype.Service;
 
 import com.example.demo.exceptions.UnsupportedMathOperationException;
 
+@Service
 public class MathService {
     private Double[] numeros = new Double[2];
 
