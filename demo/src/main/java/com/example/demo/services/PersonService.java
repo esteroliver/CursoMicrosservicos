@@ -36,10 +36,10 @@ public class PersonService {
         return personrepository.save(pessoa);
     }
 
-    public Person updatePerson(Person pessoa) throws Exception{
+    public Person updatePerson(Person pessoa, long id) throws Exception{
         logger.info("Updating one person.");
         Optional<Person> pessoa01 =  personrepository.findById(pessoa.getId());
-        if(pessoa01.isEmpty()){
+        if(pessoa01.isEmpty() || pessoa.getId() != id){
             throw new NotFoundException("Person not found.");
         }
         personrepository.save(pessoa);
