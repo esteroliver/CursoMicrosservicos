@@ -2,7 +2,7 @@ package com.example.demo.services;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.exceptions.UnsupportedMathOperationException;
+import com.example.demo.exceptions.NotFoundException;
 
 @Service
 public class MathService {
@@ -21,7 +21,7 @@ public class MathService {
             numeros[1] = n2_d;
             return numeros;
         }
-        throw new UnsupportedMathOperationException("Insira valores numéricos.");
+        throw new NotFoundException("Insira valores numéricos.");
     }
 
 }
