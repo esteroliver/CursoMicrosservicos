@@ -1,13 +1,17 @@
 package com.example.demo.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.example.demo.model.Person;
 import com.example.demo.services.PersonService;
 
 import java.util.List;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,22 +36,26 @@ public class PersonController{
     }
 
     @GetMapping("/{id}")
-    public Person findPerson(@PathVariable(value = "id") Long id) throws Exception {
-        return personservice.findPerson(id);
+    public ResponseEntity<Person> findPerson(@PathVariable(value = "id") Long id){
+        personservice.findPerson(id);
+        return ResponseEntity.status(HttpStatus.OK).body(personservice.findPerson(id));
     }
 
     @PostMapping("")
-    public Person createPerson(@RequestBody Person person) {
-        return personservice.createPerson(person);
+    public ResponseEntity<Person> createPerson(@RequestBody Person person) {
+        personservice.createPerson(person);
+        return ResponseEntity.status(HttpStatus.CREATED).body(person);
     }
 
     @PutMapping("/{id}")
-    public Person updatePerson(@PathVariable(value = "id") long id, @RequestBody Person person) throws Exception{
-        return personservice.updatePerson(person, id);
+    public ResponseEntity<Person> updatePerson(@PathVariable(value = "id") long id, @RequestBody Person person){
+        personservice.updatePerson(person, id);
+        return ResponseEntity.status(HttpStatus.OK).body(person);
     }
 
-    @DeleteMapping("/id")
-    public void deletePerson(@PathVariable(value = "id") Long id) throws Exception{
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletePerson(@PathVariable(value = "id") Long id){
         personservice.deletePerson(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Produto deletado.");
     }
 }

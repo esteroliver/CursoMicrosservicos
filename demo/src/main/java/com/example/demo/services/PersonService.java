@@ -22,7 +22,7 @@ public class PersonService {
         return personrepository.findAll();
     }
 
-    public Person findPerson(Long id) throws Exception{
+    public Person findPerson(Long id){
         logger.info("Finding one person.");
         Optional<Person> person = personrepository.findById(id);
         if(person.isEmpty()){
@@ -36,7 +36,7 @@ public class PersonService {
         return personrepository.save(pessoa);
     }
 
-    public Person updatePerson(Person pessoa, long id) throws Exception{
+    public Person updatePerson(Person pessoa, long id){
         logger.info("Updating one person.");
         Optional<Person> pessoa01 =  personrepository.findById(pessoa.getId());
         if(pessoa01.isEmpty() || pessoa.getId() != id){
@@ -46,7 +46,7 @@ public class PersonService {
         return pessoa;
     }
 
-    public void deletePerson(Long id) throws Exception{
+    public void deletePerson(Long id){
         logger.info("Deleting one person.");
         Optional<Person> pessoa = personrepository.findById(id);
         if(pessoa.isEmpty()){

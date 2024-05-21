@@ -2,11 +2,28 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GreetingServiceApplication",
+            "request": "launch",
+            "mainClass": "com.example.greetingservice.GreetingServiceApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-DemoApplication<demo>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.example.demo.DemoApplication",
             "projectName": "demo",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GreetingServiceApplication<greeting-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.greetingservice.GreetingServiceApplication",
+            "projectName": "greeting-service",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

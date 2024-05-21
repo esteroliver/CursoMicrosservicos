@@ -1,0 +1,10 @@
+spring:
+ application:
+  name: greeting-service
+
+server:
+ port: 8081
+
+greeting-service:
+ greeting: "Olá"
+ default-value: "mundo"
