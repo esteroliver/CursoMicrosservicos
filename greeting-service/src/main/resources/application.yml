@@ -3,7 +3,7 @@ spring:
     name: greeting-service
   config:
     import:
-      - optional:configserver://localhost:8888/
+      - optional:configserver:http://localhost:8888/
   cloud:
     config:
       profile: qa

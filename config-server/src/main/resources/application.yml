@@ -6,8 +6,7 @@ spring:
             server:
                 git:
                     uri: https://github.com/esteroliver/ConfigServer
-                    default-label: main
                     search-paths:
-                        - 'greeting-service'
+                        - 'greeting-service*'
 server:
     port: 8888
