@@ -36,6 +36,16 @@
             "projectName": "config-server",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-CambioApplication<cambio>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.cambio.CambioApplication",
+            "projectName": "cambio",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

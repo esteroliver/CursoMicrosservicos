@@ -2,18 +2,40 @@ package com.example.cambio;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
+
+@Entity(name = "cambio")
 public class Cambio {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, length = 3)
     private String convertFrom;
+
+    @Column(nullable = false, length = 3)
     private String convertTo;
+
+    @Column(nullable = false)
     private BigDecimal convertionFactor;
+
+    @Transient
     private BigDecimal convertedValue;
-    public Cambio(Long id, String convertFrom, String convertTo, BigDecimal convertionFactor, BigDecimal convertedValue) {
-        this.id = id;
+
+    @Transient
+    private String port;
+
+    public Cambio(String convertFrom, String convertTo, BigDecimal convertionFactor, BigDecimal convertedValue, String port) {
         this.convertFrom = convertFrom;
         this.convertTo = convertTo;
         this.convertionFactor = convertionFactor;
         this.convertedValue = convertedValue;
+        this.port = port;
     }
     public Cambio() {
     }
@@ -46,6 +68,12 @@ public class Cambio {
     }
     public void setConvertedValue(BigDecimal convertedValue) {
         this.convertedValue = convertedValue;
+    }
+    public String getPort() {
+        return port;
+    }
+    public void setPort(String port) {
+        this.port = port;
     }
     
 }
