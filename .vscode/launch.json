@@ -2,6 +2,18 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CambioApplication",
+            "request": "launch",
+            "mainClass": "com.example.cambio.CambioApplication"
+        },
+        {
+            "type": "java",
+            "name": "NamingServerApplication",
+            "request": "launch",
+            "mainClass": "com.example.naming_server.NamingServerApplication"
+        },
+        {
+            "type": "java",
             "name": "GreetingServiceApplication",
             "request": "launch",
             "mainClass": "com.example.greetingservice.GreetingServiceApplication",
@@ -65,6 +77,38 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.example.book_service.BookServiceApplication",
             "projectName": "book-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-NamingServerApplication<naming-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.naming_server.NamingServerApplication",
+            "projectName": "naming-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=60461 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=naming-server"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-NamingServerApplication<com.example-naming-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.naming_server.NamingServerApplication",
+            "projectName": "com.example-naming-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=60614 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=com.example-naming-server"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-BookServiceApplication<com.example-book-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.book_service.BookServiceApplication",
+            "projectName": "com.example-book-service",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

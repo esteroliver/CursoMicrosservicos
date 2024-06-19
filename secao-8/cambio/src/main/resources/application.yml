@@ -12,9 +12,3 @@ spring:
     jpa:
         hibernate:
             ddl-auto: update
-    flyway:
-        url: jdbc:postgresql://localhost:5432/
-        schemas:
-            - cambio
-        user: postgres
-        password: 2252cIne4667@
