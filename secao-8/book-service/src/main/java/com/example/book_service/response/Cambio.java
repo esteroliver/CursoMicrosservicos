@@ -1,4 +1,4 @@
-package com.example.book.response;
+package com.example.book_service.response;
 
 public class Cambio {
     private Long id;
@@ -54,6 +54,5 @@ public class Cambio {
     public void setPort(String port) {
         this.port = port;
     }
-    
-    
+   
 }

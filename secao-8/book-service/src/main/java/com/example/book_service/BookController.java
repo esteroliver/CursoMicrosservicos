@@ -1,12 +1,7 @@
-package com.example.book;
+package com.example.book_service;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
-
-import com.example.book.response.Cambio;
-
-import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +13,9 @@ public class BookController {
     @Autowired
     private BookRepository repository;
 
+    @Autowired
+    private CambioProxy cambioproxy;
+
     @GetMapping("/{id}/{currency}")
     public Book getBookConversion(@PathVariable("id") Long id, @PathVariable("currency") String currency) {
 
@@ -25,14 +23,21 @@ public class BookController {
         if(book.isEmpty()) throw new RuntimeException("Não encontrado.");
         Book book_type = book.get();
 
-        HashMap <String, String> params = new HashMap<>();
-        params.put("amount", book_type.getPrice().toString());
-        params.put("from", "USD");
-        params.put("to", currency);
-        var response = new RestTemplate().getForEntity("http://localhost:8000/cambio-service/{amount}/{from}/{to}", Cambio.class, params);
-        Cambio cambio = response.getBody();
+        var cambio = cambioproxy.getCambio(book_type.getPrice(), "USD", currency);
         book_type.setPrice(cambio.getConvertedValue());
+
         return book_type;
+
+        // HashMap <String, String> params = new HashMap<>();
+        // params.put("amount", book_type.getPrice().toString());
+        // params.put("from", "USD");
+        // params.put("to", currency);
+
+        // var response = new RestTemplate().getForEntity("http://localhost:8000/cambio-service/{amount}/{from}/{to}", Cambio.class, params);
+        // Cambio cambio = response.getBody();
+        // book_type.setPrice(cambio.getConvertedValue());
+
+       
     }
     
 }

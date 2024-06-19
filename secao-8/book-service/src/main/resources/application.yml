@@ -3,7 +3,7 @@ server:
 
 spring:
     application:
-        name: book
+        name: book-service
     datasource:
         url: jdbc:postgresql://localhost:5432/book
         username: postgres
@@ -12,9 +12,3 @@ spring:
     jpa:
         hibernate:
             ddl-auto: update
-    flyway:
-            url: jdbc:postgresql://localhost:5432/
-            schemas:
-                - book
-            user: postgres
-            password: 2252cIne4667@
