@@ -46,6 +46,16 @@
             "projectName": "cambio",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-BookApplication<book>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.book.BookApplication",
+            "projectName": "book",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

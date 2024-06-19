@@ -1,0 +1,20 @@
+server:
+    port: 8100
+
+spring:
+    application:
+        name: book
+    datasource:
+        url: jdbc:postgresql://localhost:5432/book
+        username: postgres
+        password: 2252cIne4667@
+        driver-class-name: org.postgresql.Driver
+    jpa:
+        hibernate:
+            ddl-auto: update
+    flyway:
+            url: jdbc:postgresql://localhost:5432/
+            schemas:
+                - book
+            user: postgres
+            password: 2252cIne4667@
